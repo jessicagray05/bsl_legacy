@@ -1,0 +1,382 @@
+:root {
+  --bg: #03060d;
+  --panel: rgba(10, 16, 28, 0.75);
+  --panel-border: rgba(255, 255, 255, 0.08);
+  --text: #f5f7fb;
+  --muted: #aeb7c8;
+  --accent: #7fd3ff;
+  --accent-soft: rgba(127, 211, 255, 0.18);
+  --shadow: 0 20px 50px rgba(0, 0, 0, 0.35);
+}
+
+* {
+  box-sizing: border-box;
+}
+
+html {
+  scroll-behavior: smooth;
+}
+
+body {
+  margin: 0;
+  font-family: 'Inter', sans-serif;
+  background: radial-gradient(circle at top, rgba(19, 37, 74, 0.55), transparent 25%), var(--bg);
+  color: var(--text);
+  min-height: 100vh;
+  overflow-x: hidden;
+}
+
+#space-canvas {
+  position: fixed;
+  inset: 0;
+  width: 100%;
+  height: 100%;
+  z-index: -2;
+}
+
+.site-header,
+.section-shell {
+  width: min(1120px, calc(100% - 32px));
+  margin-inline: auto;
+}
+
+.site-header {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 20px;
+  padding: 26px 0 14px;
+  position: sticky;
+  top: 0;
+  z-index: 10;
+  backdrop-filter: blur(10px);
+}
+
+.brand {
+  display: flex;
+  align-items: center;
+  gap: 14px;
+}
+
+.brand-mark {
+  width: 52px;
+  height: 52px;
+  border-radius: 16px;
+  display: grid;
+  place-items: center;
+  background: linear-gradient(180deg, rgba(255,255,255,0.18), rgba(255,255,255,0.06));
+  border: 1px solid var(--panel-border);
+  font-weight: 700;
+  box-shadow: var(--shadow);
+}
+
+.brand h1,
+.hero h2,
+h3,
+p {
+  margin: 0;
+}
+
+.top-nav {
+  display: flex;
+  gap: 18px;
+  flex-wrap: wrap;
+}
+
+.top-nav a,
+.button {
+  text-decoration: none;
+  color: var(--text);
+}
+
+.top-nav a {
+  color: var(--muted);
+  font-size: 0.95rem;
+}
+
+.top-nav a:hover {
+  color: var(--text);
+}
+
+main {
+  padding-bottom: 180px;
+}
+
+.hero,
+.content-grid,
+.demo-section,
+.skills-section,
+.contact-section {
+  margin-top: 24px;
+}
+
+.hero {
+  display: grid;
+  grid-template-columns: 1.4fr 0.8fr;
+  gap: 22px;
+  padding-top: 26px;
+}
+
+.glass-panel {
+  background: var(--panel);
+  border: 1px solid var(--panel-border);
+  border-radius: 28px;
+  box-shadow: var(--shadow);
+  backdrop-filter: blur(14px);
+}
+
+.hero-copy,
+.hero-side,
+.content-grid article,
+.demo-copy,
+.info-stack,
+.skills-section .glass-panel,
+.contact-section .glass-panel,
+.camera-widget {
+  padding: 28px;
+}
+
+.eyebrow {
+  text-transform: uppercase;
+  letter-spacing: 0.15em;
+  font-size: 0.72rem;
+  color: var(--accent);
+  margin-bottom: 12px;
+}
+
+.hero h2 {
+  font-size: clamp(2rem, 6vw, 4rem);
+  line-height: 1.05;
+  max-width: 11ch;
+}
+
+.hero-text,
+.hero-side p,
+.content-grid p,
+.demo-copy p,
+.info-stack p,
+.contact-section p {
+  color: var(--muted);
+  line-height: 1.7;
+  margin-top: 16px;
+}
+
+.hero-actions {
+  display: flex;
+  gap: 12px;
+  flex-wrap: wrap;
+  margin-top: 24px;
+}
+
+.button {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  padding: 12px 18px;
+  border-radius: 999px;
+  border: 1px solid var(--panel-border);
+  font-weight: 600;
+  cursor: pointer;
+  transition: transform 0.2s ease, background 0.2s ease;
+}
+
+.button:hover {
+  transform: translateY(-1px);
+}
+
+.button-primary {
+  background: linear-gradient(180deg, rgba(127, 211, 255, 0.32), rgba(127, 211, 255, 0.12));
+}
+
+.button-secondary {
+  background: rgba(255, 255, 255, 0.04);
+}
+
+.hero-tags,
+.skill-list {
+  display: flex;
+  gap: 10px;
+  flex-wrap: wrap;
+  margin-top: 26px;
+}
+
+.hero-tags span,
+.skill-list span,
+.legend-grid div {
+  border: 1px solid var(--panel-border);
+  background: rgba(255, 255, 255, 0.04);
+}
+
+.hero-tags span,
+.skill-list span {
+  padding: 10px 14px;
+  border-radius: 999px;
+  color: var(--muted);
+  font-size: 0.92rem;
+}
+
+.content-grid {
+  display: grid;
+  grid-template-columns: repeat(2, 1fr);
+  gap: 22px;
+}
+
+.demo-section {
+  display: grid;
+  grid-template-columns: 1.1fr 0.9fr;
+  gap: 22px;
+}
+
+.legend-grid {
+  display: grid;
+  grid-template-columns: repeat(2, minmax(0, 1fr));
+  gap: 12px;
+  margin-top: 22px;
+}
+
+.legend-grid div {
+  border-radius: 18px;
+  padding: 14px;
+}
+
+.legend-grid strong,
+.legend-grid span {
+  display: block;
+}
+
+.legend-grid span,
+.status-text,
+.camera-subtitle,
+.panel-title {
+  color: var(--muted);
+}
+
+.demo-status-wrap {
+  margin-top: 24px;
+  padding: 18px;
+  border-radius: 22px;
+  background: rgba(255, 255, 255, 0.04);
+  border: 1px solid var(--panel-border);
+}
+
+.status-label {
+  font-size: 0.88rem;
+  color: var(--muted);
+}
+
+.detected-phrase {
+  margin-top: 6px;
+  font-size: clamp(1.5rem, 4vw, 2.7rem);
+  font-weight: 800;
+  letter-spacing: 0.08em;
+}
+
+.status-text {
+  margin-top: 8px;
+  font-size: 0.95rem;
+}
+
+.camera-widget {
+  position: fixed;
+  right: 20px;
+  bottom: 20px;
+  width: min(360px, calc(100vw - 24px));
+  z-index: 12;
+}
+
+.camera-header {
+  display: flex;
+  align-items: flex-start;
+  justify-content: space-between;
+  gap: 12px;
+  margin-bottom: 18px;
+}
+
+.camera-title {
+  font-weight: 700;
+}
+
+.small-button {
+  padding: 10px 14px;
+  font-size: 0.88rem;
+}
+
+.camera-stage {
+  position: relative;
+  aspect-ratio: 4 / 3;
+  border-radius: 22px;
+  overflow: hidden;
+  background: #02040a;
+  border: 1px solid var(--panel-border);
+}
+
+#webcam,
+#overlay,
+.camera-frame {
+  position: absolute;
+  inset: 0;
+  width: 100%;
+  height: 100%;
+}
+
+#webcam,
+#overlay {
+  object-fit: cover;
+}
+
+#webcam {
+  transform: scaleX(-1);
+}
+
+#overlay {
+  pointer-events: none;
+}
+
+.camera-frame {
+  border: 1px solid rgba(127, 211, 255, 0.35);
+  box-shadow: inset 0 0 0 1px rgba(255,255,255,0.06);
+}
+
+@media (max-width: 900px) {
+  .site-header,
+  .hero,
+  .content-grid,
+  .demo-section {
+    grid-template-columns: 1fr;
+  }
+
+  .site-header {
+    position: relative;
+    align-items: flex-start;
+    flex-direction: column;
+  }
+
+  .camera-widget {
+    position: relative;
+    right: auto;
+    bottom: auto;
+    width: min(1120px, calc(100% - 32px));
+    margin: 24px auto 32px;
+  }
+
+  main {
+    padding-bottom: 24px;
+  }
+}
+
+@media (max-width: 640px) {
+  .hero-copy,
+  .hero-side,
+  .content-grid article,
+  .demo-copy,
+  .info-stack,
+  .skills-section .glass-panel,
+  .contact-section .glass-panel,
+  .camera-widget {
+    padding: 20px;
+  }
+
+  .legend-grid {
+    grid-template-columns: 1fr;
+  }
+}

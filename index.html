@@ -1,0 +1,175 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Jessica Gray | BSL Space Portfolio</title>
+  <meta name="description" content="A clean portfolio-style concept website that turns hand movement into star-built words inspired by British Sign Language." />
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="style.css" />
+</head>
+<body>
+  <canvas id="space-canvas" aria-hidden="true"></canvas>
+
+  <header class="site-header">
+    <div class="brand">
+      <div class="brand-mark">JG</div>
+      <div>
+        <p class="eyebrow">Student Portfolio Project</p>
+        <h1>Jessica Gray</h1>
+      </div>
+    </div>
+
+    <nav class="top-nav">
+      <a href="#about">About</a>
+      <a href="#project">Project</a>
+      <a href="#skills">Skills</a>
+      <a href="#contact">Contact</a>
+    </nav>
+  </header>
+
+  <main>
+    <section class="hero section-shell">
+      <div class="hero-copy glass-panel">
+        <p class="eyebrow">Creative front-end concept</p>
+        <h2>Turning hand movement into words made of stars.</h2>
+        <p class="hero-text">
+          This portfolio piece explores the idea of accessible interaction design. It uses a live camera,
+          browser-based hand tracking and a space themed interface to create a visual response to simple
+          hand gestures inspired by British Sign Language.
+        </p>
+        <div class="hero-actions">
+          <a class="button button-primary" href="#project">View Demo</a>
+          <a class="button button-secondary" href="#about">Read More</a>
+        </div>
+        <div class="hero-tags">
+          <span>HTML</span>
+          <span>CSS</span>
+          <span>JavaScript</span>
+          <span>Camera API</span>
+          <span>MediaPipe</span>
+        </div>
+      </div>
+
+      <div class="hero-side glass-panel">
+        <p class="panel-title">Project Aim</p>
+        <p>
+          The idea behind this project is to present a more visual and engaging way to think about sign-based
+          interaction. It is a concept demo rather than a full BSL translator, but it shows how gesture tracking,
+          motion design and front-end development can work together.
+        </p>
+      </div>
+    </section>
+
+    <section id="about" class="content-grid section-shell">
+      <article class="glass-panel">
+        <p class="eyebrow">About this project</p>
+        <h3>Why I made it</h3>
+        <p>
+          I wanted something for my GitHub portfolio that felt more interesting than a basic static webpage.
+          The space theme keeps the design clean while also making the interaction feel a bit more memorable.
+          The star animation reacts to recognised hand shapes and forms a word on screen, which helps turn a
+          technical demo into something more visual.
+        </p>
+      </article>
+
+      <article class="glass-panel">
+        <p class="eyebrow">What it shows</p>
+        <h3>What this demonstrates</h3>
+        <p>
+          This project shows front-end layout work, responsive design, webcam handling, real-time gesture logic,
+          animation with canvas and a more thoughtful user experience. It is simple to use, but still feels like
+          a proper project rather than a one page placeholder.
+        </p>
+      </article>
+    </section>
+
+    <section id="project" class="demo-section section-shell">
+      <div class="demo-copy glass-panel">
+        <p class="eyebrow">Live concept demo</p>
+        <h3>BSL inspired star translator</h3>
+        <p>
+          Press start camera and allow webcam access. The demo looks for one hand and checks a few simple hand
+          shapes. When one is recognised, the stars gather into a phrase. This is a portfolio prototype,
+          so the recognised phrases are limited to a few basic examples.
+        </p>
+
+        <div class="legend-grid">
+          <div><strong>Open hand</strong><span>Hello</span></div>
+          <div><strong>Fist</strong><span>No</span></div>
+          <div><strong>Thumbs up</strong><span>Thank you</span></div>
+          <div><strong>Pinch</strong><span>Please</span></div>
+          <div><strong>Two fingers up</strong><span>Yes</span></div>
+        </div>
+
+        <div class="demo-status-wrap">
+          <p class="status-label">Detected phrase</p>
+          <p id="detected-phrase" class="detected-phrase">Waiting for camera</p>
+          <p id="status-text" class="status-text">Camera off</p>
+        </div>
+      </div>
+
+      <div class="glass-panel info-stack">
+        <p class="eyebrow">Notes</p>
+        <h3>Important</h3>
+        <p>
+          This is not a full British Sign Language recognition system. BSL is a complete language with grammar,
+          movement, facial expression and context, so a real translator would need a much more advanced model and
+          much more training data. This project is a creative prototype showing the idea in a clean way.
+        </p>
+      </div>
+    </section>
+
+    <section id="skills" class="skills-section section-shell">
+      <div class="glass-panel">
+        <p class="eyebrow">Skills used</p>
+        <h3>Technical areas covered</h3>
+        <div class="skill-list">
+          <span>Responsive layout</span>
+          <span>JavaScript logic</span>
+          <span>Webcam integration</span>
+          <span>Canvas animation</span>
+          <span>UI design</span>
+          <span>Interaction design</span>
+          <span>Portfolio presentation</span>
+        </div>
+      </div>
+    </section>
+
+    <section id="contact" class="contact-section section-shell">
+      <div class="glass-panel">
+        <p class="eyebrow">GitHub ready</p>
+        <h3>How to present it</h3>
+        <p>
+          This works well as a portfolio concept because it explains the problem, shows the design thinking and gives
+          a live interaction in one page. On GitHub, you can upload the whole folder and use the README to explain the
+          idea, the tools used and the limits of the prototype.
+        </p>
+      </div>
+    </section>
+  </main>
+
+  <aside class="camera-widget glass-panel">
+    <div class="camera-header">
+      <div>
+        <p class="camera-title">Live camera</p>
+        <p class="camera-subtitle">Gesture scan demo</p>
+      </div>
+      <button id="camera-toggle" class="button button-primary small-button" type="button">Start Camera</button>
+    </div>
+
+    <div class="camera-stage">
+      <video id="webcam" autoplay playsinline muted></video>
+      <canvas id="overlay"></canvas>
+      <div class="camera-frame"></div>
+    </div>
+  </aside>
+
+  <script src="https://cdn.jsdelivr.net/npm/@mediapipe/camera_utils/camera_utils.js"></script>
+  <script src="https://cdn.jsdelivr.net/npm/@mediapipe/drawing_utils/drawing_utils.js"></script>
+  <script src="https://cdn.jsdelivr.net/npm/@mediapipe/hands/hands.js"></script>
+  <script src="script.js"></script>
+</body>
+</html>
